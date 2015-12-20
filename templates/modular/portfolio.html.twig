@@ -1,0 +1,76 @@
+<section id="portfolio">
+
+    <div class="uk-grid">
+        <div class="uk-width-1-1">
+            <div class="uk-container uk-container-center uk-text-center">
+                {{ content }}
+            </div>
+        </div>
+    </div>    
+     <div class="uk-grid uk-containter" data-uk-grid="{gutter: 10}">
+
+        {% for portfolio in page.header.portfolios %}
+            <div class="uk-width-small-1-2 uk-width-medium-1-3 uk-panel">
+
+
+           
+
+
+
+                <div class="uk-panel uk-panel-hover uk-text-center">
+                    <div class="uk-panel-teaser">
+                        <figure class="uk-overlay uk-overlay-hover">
+                            <img class="uk-border-rounded" src="{{ page.media[portfolio.thumbnail].url }}" alt="Image">
+                            <figcaption class="uk-overlay-panel uk-overlay-fade uk-overlay-background uk-border-rounded">
+                                <h3>{{ portfolio.title }}</h3>
+                                <p>{{ portfolio.description }}</p>
+                            </figcaption>
+                            <a class="uk-position-cover portfolio-link" data-uk-modal="{target:'#portfolioModal{{ portfolio.modalid }}'}"></a>
+                        </figure>
+                        <h4>{{ portfolio.title }}</h4>
+                        <p class="uk-text-muted">{{ portfolio.subtitle }}</p>
+                    </div>
+                    <h4></h4>
+                    
+                </div>
+
+
+            </div>
+
+        {% endfor %}
+    </div>
+</section>
+
+
+ {% for portfolio in page.header.portfolios %}
+    <div class="portfolio-modal uk-modal fade" id="portfolioModal{{ portfolio.modalid }}" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="uk-modal-dialog">
+            <button type="button" class="uk-modal-close uk-close"></button>
+                            <div class="uk-modal-header">
+                                <h2>{{ portfolio.title }}</h2>
+                            </div>
+            
+
+
+                            <img src="{{ page.media[portfolio.img].url }}" class="img-responsive img-centered" alt="{{ portfolio.alt }}">
+
+                            <p>{{ portfolio.description }}</p>
+                            <ul class="list-inline item-details">
+                                <li>Client:
+                                    <strong><a href="{{ portfolio.url }}">{{ portfolio.client }}</a>
+                                    </strong>
+                                </li>
+                                <li>Date:
+                                    <strong><a href="{{ portfolio.url }}">{{ portfolio.projectdate }}</a>
+                                    </strong>
+                                </li>
+                                <li>Service:
+                                    <strong><a href="{{ portfolio.url }}">{{ portfolio.category }}</a>
+                                    </strong>
+                                </li>
+                            </ul>
+
+         
+        </div>
+    </div>
+{% endfor %}

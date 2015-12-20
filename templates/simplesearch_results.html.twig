@@ -1,0 +1,142 @@
+{% extends 'partials/simplesearch_base.html.twig' %}
+
+{% block content %}
+    <div class="content-padding simplesearch">
+    <h1 class="search-header">Search Results</h1>
+
+    <p>Query: <strong>{{ query }}</strong> found {{ search_results.count }} {{ 'result'|pluralize(search_results.count) }}</p>
+
+        <div class="uk-grid uk-grid-small">
+            
+            {% if search_results.count > 0 %}
+
+            <div class="uk-width-1-1">
+                <div class="uk-container uk-container-center">  
+                    <ul id="filter" class="uk-navbar-content uk-subnav uk-subnav-pill">
+                        <li class="uk-active" data-uk-filter=""><a href="#">All</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            {% endif %}
+
+            <div class="uk-width-1-1">
+                <div class="uk-container uk-container-center">          
+                    <div id="searchContent">
+                        <div class="uk-grid-width-small-1-1 uk-grid-width-medium-1-2 uk-grid-width-large-1-3 tm-grid-heights" data-uk-grid="{gutter: 20, controls: '#filter'}">
+
+
+                            {% for page in search_results %}
+                                {% include 'partials/simplesearch_item.html.twig' with {'page':page} %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p class="uk-clearfix">
+        <br>  
+    </p>
+
+{% endblock %}
+
+{% block bottom %}
+
+    <script type="text/javascript">
+
+        function highlightSearch(element) {
+            var text = "{{ query }}";
+            var query = new RegExp("(\\b" + text + "\\b)", "gim");
+            var e = element.innerHTML;
+            var enew = e.replace(/(<span>|<\/span>)/igm, "");
+            element.innerHTML = enew;
+            var newe = enew.replace(query, "<span>$1</span>");
+            element.innerHTML = newe;
+
+        }
+
+            var input = $('#searchInput');
+
+            var searchdown = $.UIkit.search($('#dropSource'), { 
+                source: function(release) {
+                    var json = [];
+
+                    request = $.ajax({
+                        type: 'GET',
+                        url: '{{ base_url }}/search.json/query:' + input.val(),
+                        dataType: 'html',
+                        async: false
+                    });
+
+                    request.done(function(response, textStatus, jqXHR) { 
+                        json = $.parseJSON(response);
+                        release(json);                                            
+                    });          
+                    
+                },
+                delay: 300,
+                minLength: 3 
+
+            });
+
+            var searchdown = $.UIkit.search($('#dropSourceMobile'), { 
+                source: function(release) {
+                    var json = [];
+
+                    request = $.ajax({
+                        type: 'GET',
+                        url: '{{ base_url }}/search.json/query:' + $('#searchInputMobile').val(),
+                        dataType: 'html',
+                        async: false
+                    });
+
+                    request.done(function(response, textStatus, jqXHR) { 
+                        json = $.parseJSON(response);
+                        release(json);                                            
+                    });          
+                    
+                },
+                delay: 300,
+                minLength: 3 
+
+            });
+
+        jQuery(document).ready(function($){
+
+            $('[data-search-input]').on('keypress', function(event) {
+                if (event.which == 13) {
+                    event.preventDefault();
+                    if ($(this).val().length > 2) {
+                        window.location.href = $(this).data('search-input') + '{{ config.system.param_sep }}' + $(this).val();
+                    }
+                } else {
+
+                }
+            });
+
+
+            var categories = [];
+
+            {% for page in search_results %}
+
+            if($.inArray("{{ page.taxonomy.category|first }}", categories) > -1){
+
+
+            } else {
+                    $("#filter").append('<li data-uk-filter="filter-{{ page.taxonomy.category|first }}"><a href="#">{{ page.taxonomy.category|first }}</a></li>');
+                    categories.push("{{ page.taxonomy.category|first }}");
+
+            }
+
+            highlightSearch(document.getElementById("{{ page.date }}"));
+
+            {% endfor %}
+
+
+            
+        });
+
+    </script>
+
+{% endblock %}

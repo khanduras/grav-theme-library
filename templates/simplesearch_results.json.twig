@@ -1,0 +1,7 @@
+{
+    "results": [ {{ "\n" }}
+		{%- for search_result in search_results|slice(0,4) -%}
+		{{ '\t\t' }}{"title":"{{- search_result.title -}}", "url":"{{- search_result.url -}}", "text":"{% if search_result.date %}Date: <em>{{ search_result.date|date(config.date_format) }}</em>&nbsp;{% endif %}"}{{ not loop.last ? ',' }}{{ "\n" }}
+		{%- endfor -%}
+    {{ "\t" }}]
+}

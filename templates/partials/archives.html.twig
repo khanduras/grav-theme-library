@@ -1,0 +1,13 @@
+<ul class="uk-list uk-list-line archives">
+
+{% for month,items in archives_data %}
+    <li>
+    	<a href="{{ blog_url }}/archives_month{{ config.system.param_sep }}{{ month|date('M_Y')|lower|e('url') }}">
+        {% if archives_show_count %}
+        <div class="uk-badge uk-badge-notification">{{ items|length }}</div>
+        {% endif %}
+        <span class="archive_date">{{ month }}</span>
+        </a>
+    </li>
+{% endfor %}
+</ul>

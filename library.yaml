@@ -1,0 +1,21 @@
+enabled: true
+
+#  Theme Options
+
+navbar:
+  sticky:
+    enabled: true
+    
+
+#  Content Options
+
+searchPlaceHolder: 'Search the Library'
+blogContinueText: 'Continue Reading...'
+daringLinkIcon: 'exclamation-circle'
+
+streams:
+  scheme:
+    theme:
+      type: ReadOnlyStream
+      paths:
+        - user/themes/uikit-library

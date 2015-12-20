@@ -1,0 +1,18 @@
+<div class="uk-grid">
+    <div class="uk-width-1-1 uk-text-center">
+        {{ content }}
+    </div>
+</div>
+<aside class="clients">
+    <div class="uk-flex uk-flex-space-between">
+
+            {% for client in page.header.clients %}
+                <div class="uk-small-1-1 uk-medium-1-2 uk-large 1-3">
+                    <a href="{{ client.url }}">
+                        <img src="{{ page.media[client.logo].url }}" alt="">
+                    </a>
+                </div>
+            {% endfor %} 
+
+    </div>
+</aside>
