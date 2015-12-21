@@ -1,0 +1,54 @@
+{% if grav.twig.enable %}
+
+    <h3>{{'PLUGIN_COMMENTS.ADD_COMMENT'|t}}</h3>
+
+    <form name="{{ grav.config.plugins.comments.form.name }}"
+          action="{{ grav.config.plugins.comments.form.action ?  base_url ~ grav.config.plugins.comments.form.action : page.url }}"
+          method="{{ grav.config.plugins.comments.form.method|upper|default('POST') }}"
+          class="uk-form">
+    {% for field in grav.config.plugins.comments.form.fields %}
+
+        {% set value = form.value(field.name) %}
+        {% if field.evaluateDefault %}
+            {% set value = evaluate(field.evaluateDefault) %}
+        {% endif %}
+        <div>
+            {% include "forms/fields/#{field.type}/#{field.type}.html.twig" %}
+        </div>
+    {% endfor %}
+        </br>   
+        <div class="buttons">
+        {% for button in grav.config.plugins.comments.form.buttons %}
+            <button class="uk-button" type="{{ button.type|default('submit') }}">{{ button.value|default('Submit') }}</button>
+        {% endfor %}
+        </div>
+
+        {{ nonce_field('form', 'form-nonce') }}
+    </form>
+
+    {% if form.message %}
+        <div class="uk-alert">{{ form.message }}</div>
+    {% endif %}
+
+    {% if grav.twig.comments|length %}
+
+        <h3>{{'PLUGIN_COMMENTS.COMMENTS'|t}}</h3>
+
+        {% for comment in grav.twig.comments|array_reverse %}
+            <article class="uk-comment{% if page.header.author.email == comment.email %} uk-comment-primary{% endif %}">
+                <header class="uk-comment-header">
+                    <img class="uk-comment-avatar" src="http://www.gravatar.com/avatar/{{comment.email|md5}}.jpg" width="50" height="50" alt="">
+                    <h4 class="uk-comment-title">{{comment.author}}  {% if page.header.author.email == comment.email %}<em>(Author) </em> {% endif %}</h4>
+                    <div class="uk-comment-meta">{{'PLUGIN_COMMENTS.WRITTEN_ON'|t}} {{comment.date|nicetime(false)}}</div>
+                </header>
+                <div class="uk-comment-body">
+                    <p>{{comment.text}}</p>
+                </div>
+                <br>
+            </article>
+
+        {% endfor %}
+
+    {% endif %}
+
+{% endif %}

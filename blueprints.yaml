@@ -44,5 +44,3 @@ form:
     daringLinkIcon:
         type: text
         label: 'Daring Link Icon'
-
-

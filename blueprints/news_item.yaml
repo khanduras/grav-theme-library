@@ -14,6 +14,25 @@ form:
 
           fields:
 
+            author_section:
+              type: section
+              title: Author
+              underline: true
+
+            header.author.name:
+              type: text
+              label: Display Author
+              toggleable: true
+              help: Enabled displaying of author's name
+              placeholder: Name of Author
+
+            header.author.email:
+              type: text
+              label: Author's Email
+              toggleable: true
+              help: Enabled displaying of author's email
+              placeholder: Email of Author
+
             header_image:
               type: section
               title: Header Image

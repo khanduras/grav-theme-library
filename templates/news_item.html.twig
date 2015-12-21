@@ -19,7 +19,7 @@
 				{% if config.plugins.breadcrumbs.enabled %}
 					{% include 'partials/breadcrumbs.html.twig' %}
 				{% endif %}
-			    {% include 'partials/blog_item.html.twig' with {'truncate':false,'big_header':true} %}
+			    {% include 'partials/news_item.html.twig' with {'truncate':false,'big_header':true} %}
 			   
 			    {% include 'partials/comments.html.twig' with {'page': page} %}
 			</div>
@@ -33,7 +33,7 @@
 				{% if config.plugins.breadcrumbs.enabled %}
 					{% include 'partials/breadcrumbs.html.twig' %}
 				{% endif %}
-			    {% include 'partials/blog_item.html.twig' with {'truncate':false,'big_header':true} %}
+			    {% include 'partials/news_item.html.twig' with {'truncate':false,'big_header':true} %}
 			</div>
 			<div class="uk-width-1-1 uk-hidden-medium uk-hidden-large">
 				{% include 'partials/sidebar.html.twig' %}
