@@ -1,5 +1,11 @@
+# v0.3.1
+## 12/21/2015
+
+1. [](#new)
+    * Updated theme's thumbnail
+
 # v0.3.0
-## 03/01/2015
+## 12/21/2015
 
 1. [](#new)
     * Comments plugin theme support
@@ -8,7 +14,7 @@
     * News items, author: name and email
 
 # v0.2.1
-## 03/01/2015
+## 12/20/2015
 
 1. [](#new)
     * Page file blueprints
