@@ -1,8 +1,9 @@
-# v0.3.1
+# v0.3.2
 ## 12/21/2015
 
-1. [](#new)
+1. [](#improved)
     * Updated theme's thumbnail
+    * Updated theme's screenshot
 
 # v0.3.0
 ## 12/21/2015
