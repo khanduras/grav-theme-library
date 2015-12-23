@@ -162,3 +162,6 @@ pre {
 #tag-filter > .uk-active > * {
   background: #8cc14c;
 }
+.tag-filter {
+  background: #8cc14c;
+}

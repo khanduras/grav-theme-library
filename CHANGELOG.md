@@ -1,3 +1,10 @@
+# v0.3.6
+## 12/23/2015
+
+1. [](#improved)
+    * Can click links in search
+    * Color match Keywords 
+
 # v0.3.5
 ## 12/22/2015
 

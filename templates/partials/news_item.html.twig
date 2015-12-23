@@ -17,7 +17,7 @@
     {% endif %}
     {% if page.taxonomy.tag %}Keywords: 
         {% for tag in page.taxonomy.tag %}
-            <em><a class="uk-badge" href="{{ blog_url }}/tag:{{ tag }}">{{ tag }}</a></em>
+            <em><a class="uk-badge tag-filter" href="{{ blog_url }}/tag:{{ tag }}">{{ tag }}</a></em>
         {% endfor %}
     {% endif %}
     {% if ((page.disqus_comments == "on") or (page.disqus_comments != "off" and page.content_type in page.disqus_type)) and page.disqus_id %}

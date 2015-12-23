@@ -5,7 +5,7 @@
 <span class="tags">
     {% for tax,value in taxlist[taxonomy] %}
 
-	<a href="{{ blog_url }}/tag{{ config.system.param_sep }}{{ tax|e('url') }}" class="uk-badge">{{ tax }}</a>
+	<a href="{{ blog_url }}/tag{{ config.system.param_sep }}{{ tax|e('url') }}" class="uk-badge tag-filter">{{ tax }}</a>
 
     {% endfor %}
 </span>
