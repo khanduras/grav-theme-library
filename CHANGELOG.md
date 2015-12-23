@@ -1,3 +1,9 @@
+# v0.3.3
+## 12/22/2015
+
+1. [](#improved)
+    * Sort search results by category or tag.
+
 # v0.3.2
 ## 12/21/2015
 

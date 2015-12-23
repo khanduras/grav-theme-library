@@ -3,9 +3,17 @@
         <div class="uk-grid">
             <div class="uk-width-1-4">
 
-                    {% for network in site.social %}
-                        <a href="{{ network.url }}" class="uk-icon-button uk-icon-hover uk-text-primary"><i class="uk-icon-{{ network.title }}"></i></a>
-                    {% endfor %}
+
+
+            </div>
+            <div class="uk-width-1-4">
+
+
+
+            </div>
+            <div class="uk-width-1-4">
+
+
 
             </div>
             <div class="uk-width-1-4">
@@ -37,7 +45,9 @@
                 </div>
      
                 <div class="uk-navbar-flip">
-                    <span class="uk-copyright">Copyright &copy; {{ site.title }} 2014</span>
+                    {% for network in site.social %}
+                        <a href="{{ network.url }}" class="uk-icon-button uk-icon-hover uk-text-primary"><i class="uk-icon-{{ network.title }}"></i></a>
+                    {% endfor %}
 
                 </div>
 

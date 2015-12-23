@@ -1,7 +1,8 @@
 
 {% set blog_url = page.parent.url %}
 
-<div {% if page.taxonomy.category|first %}data-uk-filter="filter-{{ page.taxonomy.category|first }}"{% endif %}>                            
+<div data-uk-filter="{% if page.taxonomy.category|first %}category-filter-{{ page.taxonomy.category|first }},{% endif %}
+{% if page.taxonomy.tag %}{% for tag in page.taxonomy.tag %}tag-filter-{{ tag }}{{ loop.last ? '' : ',' }}{% endfor %}{% endif %}">                            
     <div class="uk-panel uk-panel-box">
         {% if page.taxonomy.category|first %}
             <div class="uk-panel-badge">
@@ -30,7 +31,7 @@
         <p class="uk-article-meta">
         {% if page.taxonomy.tag %}Keywords: 
                 {% for tag in page.taxonomy.tag %}
-                    <em><a class="uk-badge" href="{{ blog_url }}/tag:{{ tag }}">{{ tag }}</a></em>
+                    <em><a class="uk-badge uk-badge-success" href="{{ blog_url }}/tag:{{ tag }}">{{ tag }}</a></em>
                 {% endfor %}
         {% endif %}
     </p>

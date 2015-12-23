@@ -43,7 +43,7 @@
                     <form id="dropSourceMobile" class="uk-search uk-form uk-form-icon uk-width-1-1" data-uk-search>
                         <i class="uk-icon-search"></i> 
                             <input id="searchInputMobile" class="uk-form-large uk-width-1-1" type="search" value="{{ query }}" placeholder="{{ config.themes.library.searchPlaceHolder }}" data-search-input="{{ base_url_relative }}{{ config.plugins.simplesearch.route}}/query">
-                            <div id="dd" class="uk-dropdown uk-dropdown-search" data-uk-dropdown></div>
+                            <div id="dd_mobile" class="uk-dropdown uk-dropdown-search" data-uk-dropdown></div>
                             
                     </form>
                 </div>
@@ -112,7 +112,7 @@
         <script>
             var input = $('#searchInput');
 
-            var searchdown = $.UIkit.search($('#dropSource'), { 
+            var searchDown = $.UIkit.search($('#dropSource'), { 
                 source: function(release) {
                     var json = [];
 
@@ -134,7 +134,7 @@
 
             });
 
-            var searchdown = $.UIkit.search($('#dropSourceMobile'), { 
+            var searchDownMobile = $.UIkit.search($('#dropSourceMobile'), { 
                 source: function(release) {
                     var json = [];
 
@@ -156,7 +156,25 @@
 
             });
 
+            UIkit.ready(function() {
+              UIkit.$('#dd').on('show.uk.dropdown', function (event) {
+
+              });
+            });
+
             jQuery(document).ready(function($){
+
+
+                $('#dropSource').on('submit', function(event) {
+                    event.preventDefault();
+                    window.location.assign($('[data-search-input]').data('search-input') + '{{ config.system.param_sep }}' + $('#searchInput').val());
+                });
+
+                $('#dropSourceMobile').on('submit', function(event) {
+                    event.preventDefault();
+                    window.location.href = $('[data-search-input]').data('search-input') + '{{ config.system.param_sep }}' + $('#searchInputMobile').val();
+                    
+                });
 
                 $('[data-search-input]').on('keypress', function(event) {
                     if (event.which == 13) {
