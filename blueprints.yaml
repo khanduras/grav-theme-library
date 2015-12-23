@@ -7,7 +7,7 @@ author:
   email: danieljames@chiefqualakon.net
   url: http://chiefqualakon.net
 homepage: https://github.com/
-demo: http://uikit-library.khanduras.net
+demo: http://chiefqualakon.net
 keywords: 
 bugs: https://github.com/khanduras/grav-plugin-uikitifier/issues
 license: MIT
@@ -40,7 +40,7 @@ form:
         label: 'Search Place Holder'
     blogContinueText:
         type: text
-        label: 'Blog Continue Text'
+          label: 'Blog Continue Text'
     daringLinkIcon:
         type: text
         label: 'Daring Link Icon'
