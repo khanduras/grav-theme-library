@@ -1,5 +1,5 @@
 name: Library
-version: 0.3.4
+version: 0.3.5
 description: "UI Kit Library is a demo theme for Grav which requires UIKitifier"
 icon: group
 author:
@@ -8,7 +8,7 @@ author:
   url: http://chiefqualakon.net
 homepage: https://github.com/
 demo: http://chiefqualakon.net
-keywords: 
+keywords: UI Kit, news, one-page
 bugs: https://github.com/khanduras/grav-plugin-uikitifier/issues
 license: MIT
 
@@ -40,7 +40,7 @@ form:
         label: 'Search Place Holder'
     blogContinueText:
         type: text
-          label: 'Blog Continue Text'
+        label: 'Blog Continue Text'
     daringLinkIcon:
         type: text
         label: 'Daring Link Icon'
