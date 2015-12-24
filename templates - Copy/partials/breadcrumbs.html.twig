@@ -1,0 +1,8 @@
+{% set crumbs = breadcrumbs.get() %}
+{% if crumbs|length > 1 or config.plugins.breadcrumbs.show_all %}
+<div class="uk-breadcrumb" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+    {% for crumb in crumbs %}
+    <li><a href="{{ crumb.url }}" itemprop="url">{{ crumb.menu }}</a></li>
+    {% endfor %}
+</div>
+{% endif %}

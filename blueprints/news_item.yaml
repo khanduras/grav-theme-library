@@ -1,4 +1,4 @@
-title: Item
+title: News Item
 '@extends':
     type: default
     context: blueprints://pages
@@ -32,6 +32,28 @@ form:
               toggleable: true
               help: Enabled displaying of author's email
               placeholder: Email of Author
+
+            link_section:
+              type: section
+              title: Links
+              underline: true
+
+            header.link:
+              type: text
+              label: Link URL
+              toggleable: true
+              help: Set the link you wish to link to
+              placeholder: Link URL
+
+            header.continue_link:
+              type: toggle
+              toggleable: true
+              label: Show Continue Icon
+              highlight: true
+              help: Change the icon in theme preferences
+              options:
+                true: Show
+                false: Hide
 
             header_image:
               type: section

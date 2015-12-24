@@ -1,0 +1,52 @@
+<section id="team" class="bg-light-gray">
+    <div class="uk-grid">
+        <div class="uk-width-1-1">
+            <div class="uk-text-center">
+                {{ content }}
+            </div>
+        </div>
+    </div>
+    <div class="uk-flex uk-flex-space-between uk-clearfix uk-hidden-small">
+
+        {% for member in page.header.people %}
+
+            <div class="uk-width-1-4 uk-panel">
+                <div class="team-member uk-text-center">
+                    <img src="{{ page.media[member.pic].url }}" class="uk-thumbnail uk-border-circle" alt="">
+                    <h4>{{ member.name }}</h4>
+                    <p class="uk-text-muted">{{ member.position }}</p>
+                    
+                    {% for network in member.social %}
+                        <a href="{{ network.url }}" class="uk-icon-button uk-icon-hover"><i class="uk-icon-{{ network.title }}"></i></a>
+                    {% endfor %}
+
+                </div>
+            </div>
+        {% endfor %}  
+    </div>
+
+    <div class="uk-grid uk-hidden-medium uk-hidden-large uk-container-center">
+        {% for member in page.header.people %}
+        <div class="uk-width-1-2 uk-panel uk-hidden-medium uk-hidden-large">
+            <div class="team-member uk-text-center">
+                <img src="{{ page.media[member.pic].url }}" class="uk-thumbnail uk-border-circle" alt="">
+                <h4>{{ member.name }}</h4>
+                <p class="uk-text-muted">{{ member.position }}</p>
+                
+                {% for network in member.social %}
+                    <a href="{{ network.url }}" class="uk-icon-button uk-icon-hover"><i class="uk-icon-{{ network.title }}"></i></a>
+                {% endfor %}
+
+            </div>
+        </div>
+        {% endfor %}  
+
+    </div>
+
+    <div class="uk-grid">
+        <div class="uk-width-1-1 uk-text-center">
+            <p class="uk-large uk-text-muted">{{ page.header.description }}</p>
+        </div>
+    </div>
+
+</section>
