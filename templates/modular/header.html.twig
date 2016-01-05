@@ -1,6 +1,6 @@
 <header>
-    <div class="uk-cover-background uk-position-relative uk-border-rounded uk-text-center" style="height: 300px; background-image: url({{ page.media[page.header.cover].url }});">
-        <img class="uk-invisible" src="{{ page.media[page.header.cover].url }}" width="600" height="400" alt="">
+    <div class="uk-cover-background uk-position-relative uk-border-rounded uk-text-center" style="height: 300px; background-image: url({{ page.media[page.header.cover.name].brightness(page.header.cover.brightness).url }});">
+        <img class="uk-invisible" src="{{ page.media[page.header.cover.name].url }}" width="{{ page.header.cover.width }}" height="{{ page.header.cover.height }}" alt="">
         <div class="uk-position-cover uk-flex uk-flex-center uk-flex-middle">
             <div class="headerContent">
             	<p>{{ content }}</p>
@@ -17,4 +17,3 @@
     </div>
 
 </header>
-
