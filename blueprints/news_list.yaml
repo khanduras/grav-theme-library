@@ -1,12 +1,9 @@
-title: News
+title: News List
 '@extends':
     type: default
     context: blueprints://pages
 
-child_type: item
-
-
-title: Default
+child_type: news_item
 
 rules:
   slug:
@@ -26,7 +23,7 @@ form:
             overrides:
               fields:
                 header.child_type:
-                  default: item
+                  default: news_item
         blog:
           type: tab
           title: News List

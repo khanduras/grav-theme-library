@@ -62,6 +62,12 @@
 
                 </ul>
             </div>
+            {% else %}
+                <div class="uk-hidden-medium uk-hidden-small uk-navbar-flip">
+                    {% for network in site.social %}
+                        <a href="{{ network.url }}" class="uk-icon-button uk-icon-hover uk-text-primary"><i class="uk-icon-{{ network.title }}"></i></a>
+                    {% endfor %}
+                </div>
             {% endif %}
 
             <div class="uk-navbar-center uk-hidden-small">

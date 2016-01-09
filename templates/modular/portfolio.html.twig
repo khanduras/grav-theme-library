@@ -11,16 +11,10 @@
 
         {% for portfolio in page.header.portfolios %}
             <div class="uk-width-small-1-2 uk-width-medium-1-3 uk-panel">
-
-
-           
-
-
-
                 <div class="uk-panel uk-panel-hover uk-text-center">
                     <div class="uk-panel-teaser">
                         <figure class="uk-overlay uk-overlay-hover">
-                            <img class="uk-border-rounded" src="{{ page.media[portfolio.thumbnail].url }}" alt="Image">
+                            <img class="uk-border-rounded" src="{{ page.media[portfolio.thumbnail].url }}" alt="{{ portfolio.alt }}">
                             <figcaption class="uk-overlay-panel uk-overlay-fade uk-overlay-background uk-border-rounded">
                                 <h3>{{ portfolio.title }}</h3>
                                 <p>{{ portfolio.description }}</p>

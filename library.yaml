@@ -18,4 +18,4 @@ streams:
     theme:
       type: ReadOnlyStream
       paths:
-        - user/themes/uikit-library
+        - user/themes/library

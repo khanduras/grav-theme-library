@@ -1,3 +1,12 @@
+# v0.4.0
+## 1/08/2016
+
+1. [](#new)
+    * Blueprints for all modular pages
+    * Comments template updated with accordians!
+    * Updated navbar with social media from site.yaml
+    * Footer made up to look how I want it, functions not yet set
+
 # v0.3.8
 ## 1/05/2016
 

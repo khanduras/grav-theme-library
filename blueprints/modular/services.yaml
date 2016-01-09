@@ -1,0 +1,46 @@
+title: Services
+'@extends': default
+
+form:
+  fields:
+    tabs:
+      fields:
+        advanced:
+          fields:
+            columns:
+              fields:
+                column1:
+                  fields:
+                    name:
+                      default: modular/services
+                      '@data-options': '\Grav\Common\Page\Pages::modularTypes'
+            overrides:
+              fields:
+                header.template:
+                  default: modular/services
+                  '@data-options': '\Grav\Common\Page\Pages::modularTypes'
+        services:
+          type: tab
+          title: Services
+          fields:
+            header.services:
+              name: services
+              type: list
+              label: Services
+
+              fields:
+                .icon:
+                  type: text
+                  label: Icon
+                .header:
+                  type: text
+                  label: Header
+                .text:
+                  type: text
+                  label: Text
+            header.class:
+              type: text
+              label: Class
+              toggleable: true
+              help: Class for this module
+              placeholder: Class

@@ -1,0 +1,68 @@
+title: Header
+'@extends': default
+
+form:
+  fields:
+    tabs:
+      fields:
+        advanced:
+          fields:
+            columns:
+              fields:
+                column1:
+                  fields:
+                    name:
+                      default: modular/header
+                      '@data-options': '\Grav\Common\Page\Pages::modularTypes'
+            overrides:
+              fields:
+                header.template:
+                  default: modular/header
+                  '@data-options': '\Grav\Common\Page\Pages::modularTypes'
+        header:
+          type: tab
+          title: Header
+          fields:
+            cover_section:
+              type: section
+              title: Cover
+              underline: true
+            header.cover.name:
+              name: cover
+              type: text
+              label: Cover Image
+            header.cover.width:
+              name: width
+              type: text
+              label: Image Width
+            header.cover.height:
+              name: height
+              type: text
+              label: Image Height
+            header.cover.brightness:
+              name: brightness
+              type: text
+              toggleable: true
+              label: Image Brightness
+            buttons_section:
+              type: section
+              title: Buttons
+              underline: true
+            header.buttons:
+              name: portfolios
+              type: list
+              label: Portfolios
+              fields:
+                .text:
+                  type: text
+                  label: Title
+                .url:
+                  type: text
+                  label: URL
+                .primary:
+                  type: toggle
+                  label: Primary Button?
+                  highlight: true
+                  options:
+                    true: 'True'
+                    false: 'False'

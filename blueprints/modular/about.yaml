@@ -1,0 +1,52 @@
+title: About
+'@extends': default
+
+form:
+  fields:
+    tabs:
+      fields:
+        advanced:
+          fields:
+            columns:
+              fields:
+                column1:
+                  fields:
+                    name:
+                      default: modular/about
+                      '@data-options': '\Grav\Common\Page\Pages::modularTypes'
+            overrides:
+              fields:
+                header.template:
+                  default: modular/about
+                  '@data-options': '\Grav\Common\Page\Pages::modularTypes'
+        about:
+          type: tab
+          title: Abouts
+          fields:
+            header.abouts:
+              name: abouts
+              type: list
+              label: Abouts
+              fields:
+                .img:
+                  type: text
+                  label: Image
+                .heading:
+                  type: text
+                  label: Heading
+                .subheading:
+                  type: text
+                  label: Sub Heading
+                .body:
+                  type: text
+                  label: Description
+                .alttext:
+                  type: text
+                  label: Alt Text
+                .align:
+                  type: toggle
+                  label: Primary
+                  options:
+                      left: 'Left'
+                      centered: 'Centered'
+                      right: 'Right'

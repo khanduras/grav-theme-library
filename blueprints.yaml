@@ -1,15 +1,15 @@
 name: Library
-version: 0.3.8
+version: 0.4.0
 description: "UI Kit Library is a demo theme for Grav which requires UIKitifier"
 icon: book
 author:
   name: Daniel James
   email: danieljames@chiefqualakon.net
   url: http://chiefqualakon.net
-homepage: https://github.com/
+homepage: https://chiefqualakon.net
 demo: http://chiefqualakon.net
 keywords: UI Kit, news, one-page
-bugs: https://github.com/khanduras/grav-plugin-uikitifier/issues
+bugs: https://github.com/khanduras/grav-theme-library/issues
 license: MIT
 
 form:

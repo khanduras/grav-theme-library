@@ -10,7 +10,7 @@
 
                 {% for about in page.header.abouts %}
         
-                    {% if about.align == 'inverted' %}
+                    {% if about.align == 'right' %}
 
 
                         <div class="uk-width-medium-2-5 uk-hidden-small">
@@ -76,13 +76,13 @@
 
 
 
-                    {% else %}
+                    {% elseif about.align == 'left' %}
 
                         <div class="uk-width-small-2-5 uk-hidden-medium uk-hidden-large uk-vertical-align-middle uk-text-center">
                             {% if page.media[about.img] %}
-                            <img class="uk-thumbnail uk-align-center uk-border-circle uk-vertical-align-middle" src="{{ page.media[about.img].url }}" alt="">
+                                <img class="uk-thumbnail uk-align-center uk-border-circle uk-vertical-align-middle" src="{{ page.media[about.img].url }}" alt="{{ about.alttext }}">
                             {% else %}
-                            <h4 class="uk-text-center">{{ about.alttext }}</h4>
+                                <h4 class="uk-text-center">{{ about.alttext }}</h4>
                             {% endif %}
                         </div>
 

@@ -34,7 +34,7 @@
                 <p class="uk-text-muted">{{ member.position }}</p>
                 
                 {% for network in member.social %}
-                    <a href="{{ network.url }}" class="uk-icon-button uk-icon-hover"><i class="uk-icon-{{ network.title }}"></i></a>
+                    <a href="{{ network.url }}" class="uk-icon-button uk-icon-hover"><i class="uk-icon-{{ network.title|lower }}"></i></a>
                 {% endfor %}
 
             </div>

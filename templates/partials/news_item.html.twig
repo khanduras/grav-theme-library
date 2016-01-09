@@ -47,29 +47,34 @@
         {% set show_prev_next = true %}
     {% endif %}
 </article>
-    
-{% if ((page.disqus_comments == "on") or (page.disqus_comments != "off" and page.content_type in page.disqus_type)) and page.disqus_id %}
-    <div class="uk-panel uk-panel-header uk-margin">
-        <h3 class="uk-panel-title">Comments</h3>
-        {% include "assets/layout/disqus_comments.html" %}
-    </div>
-{% endif %}
+
 {% if show_prev_next %}
 
+    <ul class="uk-pagination">
+        {% if not page.isLast %}
+            <li class="uk-pagination-previous" data-uk-tooltip title="{{ page.prevSibling.title }}"><a href="{{ page.prevSibling.url }}"><i class="uk-icon-chevron-left"></i> Previous Post</a></li>
+        {% endif %}
 
-
-<ul class="uk-pagination">
-    {% if not page.isLast %}
-        <li class="uk-pagination-previous" data-uk-tooltip title="{{ page.prevSibling.title }}"><a href="{{ page.prevSibling.url }}"><i class="uk-icon-chevron-left"></i> Previous Post</a></li>
+        {% if not page.isFirst %}
+            <li class="uk-pagination-next"><a href="{{ page.nextSibling.url }}" data-uk-tooltip title="{{ page.nextSibling.title }}">Next Post <i class="uk-icon-chevron-right"></i></a></li>
+        {% endif %}
+    </ul>
+        
+    {% if config.plugins.comments.enabled %}
+        {% include 'partials/comments.html.twig' with {'page': page} %}
     {% endif %}
 
-    {% if not page.isFirst %}
-        <li class="uk-pagination-next"><a href="{{ page.nextSibling.url }}" data-uk-tooltip title="{{ page.nextSibling.title }}">Next Post <i class="uk-icon-chevron-right"></i></a></li>
+    {% if ((page.disqus_comments == "on") or (page.disqus_comments != "off" and page.content_type in page.disqus_type)) and page.disqus_id %}
+        <div class="uk-panel uk-panel-header uk-margin">
+            <h3 class="uk-panel-title">Comments</h3>
+            {% include "assets/layout/disqus_comments.html" %}
+        </div>
     {% endif %}
-</ul>
+
 {% endif %}
+
 {% if config.plugins.relatedpages.enabled and related_pages|length > 0 %}
-    <h4>Related Posts</h4>
+    <h3>Related Posts</h3>
     {% include 'partials/relatedpages.html.twig' %}
                 <br />
 {% endif %}

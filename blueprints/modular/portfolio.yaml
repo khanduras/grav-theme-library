@@ -1,0 +1,67 @@
+title: Portfolio
+'@extends': default
+
+form:
+  fields:
+    tabs:
+      fields:
+        advanced:
+          fields:
+            columns:
+              fields:
+                column1:
+                  fields:
+                    name:
+                      default: modular/portfolio
+                      '@data-options': '\Grav\Common\Page\Pages::modularTypes'
+            overrides:
+              fields:
+                header.template:
+                  default: modular/portfolio
+                  '@data-options': '\Grav\Common\Page\Pages::modularTypes'
+        portfolios:
+          type: tab
+          title: Portfolios
+          fields:
+            header.portfolios:
+              name: portfolios
+              type: list
+              label: Portfolios
+
+              fields:
+                .title:
+                  type: text
+                  label: Title
+                .subtitle:
+                  type: text
+                  label: Subtitle
+                .url:
+                  type: text
+                  label: URL
+                .img:
+                  type: text
+                  label: Image
+                .thumbnail:
+                  type: text
+                  label: Thumbnail
+                .alt:
+                  type: text
+                  label: Alt Text
+                .projectdate:
+                  type: text
+                  label: Project Date
+                .client:
+                  type: text
+                  label: Client
+                .category:
+                  type: text
+                  label: Category
+                .description:
+                  type: text
+                  label: Description
+                .layout:
+                  type: text
+                  label: Layout
+                .modalid:
+                  type: text
+                  label: Modal ID

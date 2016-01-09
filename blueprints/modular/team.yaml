@@ -1,0 +1,56 @@
+title: Team
+'@extends': default
+
+form:
+  fields:
+    tabs:
+      fields:
+        advanced:
+          fields:
+            columns:
+              fields:
+                column1:
+                  fields:
+                    name:
+                      default: modular/team
+                      '@data-options': '\Grav\Common\Page\Pages::modularTypes'
+            overrides:
+              fields:
+                header.template:
+                  default: modular/team
+                  '@data-options': '\Grav\Common\Page\Pages::modularTypes'
+        team:
+          type: tab
+          title: Team
+          fields:
+            header.people:
+              name: people
+              type: list
+              label: People
+              fields:
+                .name:
+                  type: text
+                  label: Name
+                .pic:
+                  type: text
+                  label: Image
+                .position:
+                  type: text
+                  label: Position
+                .social:
+                  name: social
+                  type: list
+                  label: Social Networks
+                  fields:
+                    .title:
+                      type: text
+                      label: Title
+                    .url:
+                      type: text
+                      label: URL
+            header.description:
+              name: description
+              type: text
+              label: Description 
+
+
