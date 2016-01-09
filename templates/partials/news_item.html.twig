@@ -1,25 +1,26 @@
-{% if page.header.link %}
-    <h2>
-        {% if page.header.continue_link is not sameas(false) %}
-        <a href="{{ page.url }}"><i class="uk-icon-{{ config.themes.library.daringLinkIcon }}"></i></a>
+<div class="uk-grid">
+    <div class="uk-width-5-6">
+        {% if page.header.link %}
+            <h2>
+                {% if page.header.continue_link is not sameas(false) %}
+                <a href="{{ page.url }}"><i class="uk-icon-{{ config.themes.library.daringLinkIcon }}"></i></a>
+                {% endif %}
+                <a href="{{ page.header.link }}">{{ page.title }}</a>
+            </h2>
+        {% else %}
+            <h2><a href="{{ page.url }}">{{ page.title }}</a></h2>
         {% endif %}
-        <a href="{{ page.header.link }}">{{ page.title }}</a>
-    </h2>
-{% else %}
-    <h2><a href="{{ page.url }}">{{ page.title }}</a></h2>
-{% endif %}
+    </div>
+    <div class="uk-width-medium-1-6 uk-push--6">
+        {% if page.taxonomy.category %}Category: 
+               <em><a class="uk-badge" href="{{ blog_url }}/category:{{ page.taxonomy.category|first }}">{{ page.taxonomy.category|first }}</a></em>
+        {% endif %}
+    </div>
+</div>
 <p class="uk-article-meta">
     {% if page.header.author.name %}Author: <strong>{{ page.header.author.name }}</strong>&nbsp;{% endif %}
     {% if page.header.publish_date %}Published: <em>{{ page.header.publish_date|date(config.date_format) }}</em>&nbsp;{% endif %}
-    {% if page.date %}Last Modified: <em>{{ page.date|nicetime(false) }}</em>&nbsp;{% endif %}
-    {% if page.taxonomy.category %}Category: 
-           <em><a class="uk-badge" href="{{ blog_url }}/category:{{ page.taxonomy.category|first }}">{{ page.taxonomy.category|first }}</a></em>
-    {% endif %}
-    {% if page.taxonomy.tag %}Keywords: 
-        {% for tag in page.taxonomy.tag %}
-            <em><a class="uk-badge tag-filter" href="{{ blog_url }}/tag:{{ tag }}">{{ tag }}</a></em>
-        {% endfor %}
-    {% endif %}
+    {% if page.date %}Last Modified: <em>{{ page.date|nicetime(true) }}</em>&nbsp;{% endif %}
     {% if ((page.disqus_comments == "on") or (page.disqus_comments != "off" and page.content_type in page.disqus_type)) and page.disqus_id %}
         <a href="#disqus_thread" data-uk-smooth-scroll={% if page.navbar == 'sticky' %}"{offset: '50'}"{% else %}"{offset: '10'}"{% endif %}><i class="uk-icon-comment"></i>&nbsp;Comments</a>
     {% endif %}
@@ -41,7 +42,9 @@
         <p><a class="uk-button uk-button-primary" href="{{ page.url }}">{{ config.themes.library.blogContinueText }}</a></p>
     {% elseif truncate %}
         <p>{{ page.content|truncate(550) }}</p>
-        <p><a class="uk-button uk-button-primary" href="{{ page.url }}">{{ config.themes.library.blogContinueText }}</a></p>
+        {% if page.content|truncate(550) != page.content %}
+          <p><a class="uk-button uk-button-primary" href="{{ page.url }}">{{ config.themes.library.blogContinueText }}</a></p>
+        {% endif %}
     {% else %}
         <p>{{ page.content }}</p>
         {% set show_prev_next = true %}
@@ -49,6 +52,41 @@
 </article>
 
 {% if show_prev_next %}
+
+    <div class="uk-container-center">
+
+        <div class="uk-panel">
+            <div class="uk-grid uk-grid-divider">
+                <div>
+                    <p class="uk-article-meta">
+                        {% if header.via.url %}Via: 
+                            <em>
+                                <a href="{{ header.via.url }}" target="_new">
+                                    {% if header.via.text %}{{ header.via.text }}
+                                    {% else %}{{ header.via.url }}{% endif %}
+                                </a>
+                            </em> 
+                            <br>
+                        {% endif %}
+                        {% if header.sources|length > 0 %}Source{% if header.sources|length > 1 %}s{% endif %}: 
+                            {% for source in header.sources %}
+                            <em><a href="{{ source.url }}" target="_new">{% if source.text %}{{ source.text|trim }}{% else %}{{ source.url|trim }}{% endif %}</a></em>{{ not loop.last ? ',' }}{{ loop.last ? '<br>' }}
+                            {% endfor %}
+                        {% endif %}
+
+                        {% if page.taxonomy.tag %}Keyword{% if page.taxonomy.tag|length > 1 %}s{% endif %}: 
+                            {% for tag in page.taxonomy.tag %}
+                                <em><a class="uk-badge tag-filter" href="{{ blog_url }}/tag:{{ tag }}">{{ tag }}</a></em>
+                            {% endfor %}
+                        {% endif %}
+
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 
     <ul class="uk-pagination">
         {% if not page.isLast %}
@@ -74,7 +112,6 @@
 {% endif %}
 
 {% if config.plugins.relatedpages.enabled and related_pages|length > 0 %}
-    <h3>Related Posts</h3>
     {% include 'partials/relatedpages.html.twig' %}
                 <br />
 {% endif %}

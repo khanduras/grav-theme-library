@@ -6,24 +6,26 @@ This Grav theme is a recreation of the [Jekyll Agency theme](https://github.com/
 
 # Features
 
-* Fully responsive
+* Fully responsive to fit small and large screens
 * Custom collapsing navigation with active classes, smooth page scrolling, and responsive fallback stylings
 * Services section with CSS only circle icons by Font Awesome
 * Portfolio grid with modal window popup previews for portfolio item details
 * News section including News items and News feed with pagination
 * About section with a responsive timeline, special thanks to Bootsnipp
 * Team member section with circle profile images and social media links
-* LESS files included for deeper customization options
+* Blueprint files for all pages and modular templates
 
 # Installation
 
 Installing the Library theme can be done in one of two ways. Our GPM (Grav Package Manager) installation method enables you to quickly and easily install the theme with a simple terminal command, while the manual method enables you to do so via a zip file.
 
-(I hope to have a working Skeleton - stay tuned.)
+## Admin Plugin (Preferred)
 
-## GPM Installation (Preferred)
+Using the Admin Plugin makes installing Library a breeze. Click themes on the left menu and click Add on the top menu. Find Library from the list and click on its Install button. Once complete, go back into Themes and be sure to Activate it. Fianlly, click on Dashboard and click the ```Clear Cache``` button on the top menu.
 
-The simplest way to install this theme is via the [Grav Package Manager (GPM)](http://learn.getgrav.org/advanced/grav-gpm) through your system's Terminal (also called the command line).  From the root of your Grav install type:
+## GPM Installation
+
+A quick way to install this theme is via the [Grav Package Manager (GPM)](http://learn.getgrav.org/advanced/grav-gpm) through your system's Terminal (also called the command line).  From the root of your Grav install type:
 
     bin/gpm install library
 
@@ -39,13 +41,19 @@ You should now have all the theme files under
 
 >> NOTE: This theme is a modular component for Grav which requires the [Grav](http://github.com/getgrav/grav), [Error](https://github.com/getgrav/grav-theme-error) and [Problems](https://github.com/getgrav/grav-plugin-problems) plugins.
 
+>> FINALLY: Once you've activated Library, you have to align your page.md file with Library's template files. Any blog listing page should be named ```news_list.md``` and blog items should be named ```news_item.md```.
+
 # Updating
 
 As development for the Library theme continues, new versions may become available that add additional features and functionality, improve compatibility with newer Grav releases, and generally provide a better user experience. Updating Library is easy, and can be done through Grav's GPM system, as well as manually.
 
-## GPM Update (Preferred)
+## Admin Plugin (Preferred)
 
-The simplest way to update this theme is via the [Grav Package Manager (GPM)](http://learn.getgrav.org/advanced/grav-gpm). You can do this with this by navigating to the root directory of your Grav install using your system's Terminal (also called command line) and typing the following:
+New updates can be picked up by the Admin Plugin. This is the quickest way and you also have access to various settings and options that are easier to access than via a file editor.
+
+## GPM Update
+
+A quick way to update this theme is via the [Grav Package Manager (GPM)](http://learn.getgrav.org/advanced/grav-gpm). You can do this with this by navigating to the root directory of your Grav install using your system's Terminal (also called command line) and typing the following:
 
     bin/gpm update library
 
@@ -64,7 +72,7 @@ Manually updating Library is pretty simple. Here is what you will need to do to 
 
 # Setup
 
-If you want to set Agency as the default theme, you can do so by following these steps:
+If you want to manually set Agency as the default theme, you can do so by following these steps:
 
 * Navigate to `/your/site/grav/user/config`.
 * Open the **system.yaml** file.

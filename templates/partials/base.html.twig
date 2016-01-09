@@ -103,7 +103,10 @@
         {% block body %}
             <div class='uk-container uk-container-center'>
                 <section id="body" class="{{ class }}">
-                {% block content %}{% endblock %}
+                    {% if form.message %}
+                        <div class="uk-alert"><a href="" class="uk-alert-close uk-close"></a>{{ form.message }}</div>
+                    {% endif %}
+                   {% block content %}{% endblock %}
                 </section>
             </div>                
         {% endblock %}

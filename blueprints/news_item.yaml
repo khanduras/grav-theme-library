@@ -101,6 +101,32 @@ form:
                 min: 0
                 max: 5000
 
+            sources:
+              type: section
+              title: Sources
+              underline: true
+
+            header.via.text:
+              type: text
+              toggleable: true
+              label: Via Title
+
+            header.via.url:
+              type: text
+              label: Via URL
+              toggleable: true
+
+            header.sources:
+              type: list
+              label: Sources
+
+              fields:
+                .url:
+                  type: text
+                  label: URL
+                .text:
+                  type: text
+                  label: Text
 
             summary:
               type: section

@@ -1,5 +1,5 @@
 name: Library
-version: 0.4.0
+version: 0.4.1
 description: "UI Kit Library is a demo theme for Grav which requires UIKitifier"
 icon: book
 author:
@@ -10,6 +10,7 @@ homepage: https://chiefqualakon.net
 demo: http://chiefqualakon.net
 keywords: UI Kit, news, one-page
 bugs: https://github.com/khanduras/grav-theme-library/issues
+readme: https://github.com/khanduras/grav-theme-library/blob/master/README.md
 license: MIT
 
 form:
@@ -18,8 +19,8 @@ form:
     dropdown.enabled:
         type: toggle
         label: Dropdown in navbar
-        highlight: 1
-        default: 1
+        highlight: 0
+        default: 0
         options:
           1: Enabled
           0: Disabled

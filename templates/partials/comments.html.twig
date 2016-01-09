@@ -1,13 +1,8 @@
 {% if grav.twig.enable %}
 
-    {% if form.message %}
-        <div class="uk-alert">{{ form.message }}</div>
-    {% endif %}
-
     <div class="uk-accordion" data-uk-accordion="{collapse: false}">
 
-
-        <h3 class="uk-accordion-title">{{'PLUGIN_COMMENTS.COMMENTS'|t}} ({% if grav.twig.comments|length %}{{ grav.twig.comments|length}}{% else %}0{% endif%}) </h3>
+        <h3 class="uk-accordion-title"><i class="uk-icon-comments-o"></i> {{'PLUGIN_COMMENTS.COMMENTS'|t}} ({% if grav.twig.comments|length %}{{ grav.twig.comments|length}}{% else %}0{% endif%}) </h3>
         <div class="uk-accordion-content">
 
         {% if grav.twig.comments|length %}
@@ -35,7 +30,7 @@
 
         </div>
 
-        <h3 class="uk-accordion-title">{{'PLUGIN_COMMENTS.ADD_COMMENT'|t}}</h3>
+        <h3 class="uk-accordion-title"><i class="uk-icon-pencil"></i> {{'PLUGIN_COMMENTS.ADD_COMMENT'|t}}</h3>
         <div class="uk-accordion-content">
 
             <form name="{{ grav.config.plugins.comments.form.name }}"

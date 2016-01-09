@@ -1,3 +1,10 @@
+# v0.4.1
+## 1/09/2016
+
+1. [](#improved)
+    * News pages have ```Via``` & ```Source``` attributes 
+    * ```news_list``` & ```news_item``` touch ups
+
 # v0.4.0
 ## 1/08/2016
 
