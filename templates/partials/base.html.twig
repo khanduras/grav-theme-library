@@ -101,7 +101,7 @@
             <br />
 
         {% block body %}
-            <div class='uk-container uk-container-center'>
+            <div class='uk-container uk-container-center{% if config.themes.library.animateOnPageLoad %} hidden{% endif %}'>
                 <section id="body" class="{{ class }}">
                     {% if form.message %}
                         <div class="uk-alert"><a href="" class="uk-alert-close uk-close"></a>{{ form.message }}</div>
@@ -196,10 +196,11 @@
                     }
                 });
 
-
+                {% if config.themes.library.animateOnPageLoad %}
+                    $('div.hidden').fadeIn(1000).removeClass('hidden');
+                {% endif %}
 
             });
-
 
         </script>        
 

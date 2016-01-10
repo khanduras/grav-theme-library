@@ -39,7 +39,16 @@
         {% endif %}
     {% elseif truncate and page.summary != page.content %}
         <p>{{ page.summary }}</p>
-        <p><a class="uk-button uk-button-primary" href="{{ page.url }}">{{ config.themes.library.blogContinueText }}</a></p>
+        <p>
+            <a class="uk-button uk-button-primary" href="{{ page.url }}">{{ config.themes.library.blogContinueText }}</a>
+            {% if config.plugins.comments.enabled %}
+                {% set comments = fetchComments.get(page.route) %}
+                <a class="uk-button" href="{{ page.url }}#comments"><i class="uk-icon-comment"></i>&nbsp;Comments
+                    {% if comments %}({{ comments|length }}){% endif %}
+                </a>
+            {% endif %}
+
+        </p>
     {% elseif truncate %}
         <p>{{ page.content|truncate(550) }}</p>
         {% if page.content|truncate(550) != page.content %}
@@ -86,7 +95,7 @@
         </div>
     </div>
 
-
+    <a id="comments"></a>
 
     <ul class="uk-pagination">
         {% if not page.isLast %}

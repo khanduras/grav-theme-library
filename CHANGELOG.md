@@ -1,3 +1,10 @@
+# v0.4.2
+## 1/09/2016
+
+1. [](#new)
+    * News List shows the number of comments per listing
+    * Fade In effect on page load as a theme option
+
 # v0.4.1
 ## 1/09/2016
 

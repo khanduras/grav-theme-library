@@ -1,5 +1,5 @@
 name: Library
-version: 0.4.1
+version: 0.4.2
 description: "UI Kit Library is a demo theme for Grav which requires UIKitifier"
 icon: book
 author:
@@ -31,6 +31,16 @@ form:
         label: Sticky navbar
         highlight: 1
         default: 1
+        options:
+          1: Enabled
+          0: Disabled
+        validate:
+          type: bool
+    animateOnPageLoad:
+        type: toggle
+        label: Fade In on Page Load
+        highlight: 0
+        default: 0
         options:
           1: Enabled
           0: Disabled
