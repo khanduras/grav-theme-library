@@ -81,3 +81,7 @@ If you want to manually set Agency as the default theme, you can do so by follow
 * Clear the Grav cache. The simplest way to do this is by going to the root Grav directory in Terminal and typing `bin/grav clear-cache`.
 
 Once this is done, you should be able to see the new theme on the frontend. Keep in mind any customizations made to the previous theme will not be reflected as all of the theme and templating information is now being pulled from the **library** folder.
+
+#Demo Content
+
+You're able to copy the _demo folder to /users and see an example of how this theme works!
