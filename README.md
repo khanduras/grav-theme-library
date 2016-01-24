@@ -1,6 +1,6 @@
 # Library Theme for Grav
 
-![Library](thumbnail.jpg)
+![Library](screenshot.jpg)
 
 This Grav theme is a recreation of the [Jekyll Agency theme](https://github.com/y7kim/agency-jekyll-theme) by [Rick Kim (y7kim)](https://github.com/y7kim), which originated from the [Agency Bootstrap theme by Start Bootstrap](http://startbootstrap.com/template-overviews/agency/) reimagined to make use of [Yootheme](http://yootheme.com) [UIKit Framework](http://getuikit.com)..
 

@@ -1,3 +1,9 @@
+# v0.4.4
+## 1/23/2016
+
+1. [](#updated)
+    * Updated README and blueprint
+
 # v0.4.3
 ## 1/13/2016
 
