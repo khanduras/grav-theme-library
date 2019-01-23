@@ -12,10 +12,3 @@ searchPlaceHolder: 'Search the Library'
 blogContinueText: 'Continue Reading...'
 daringLinkIcon: 'exclamation-circle'
 animateOnPageLoad: false
-
-streams:
-  scheme:
-    theme:
-      type: ReadOnlyStream
-      paths:
-        - user/themes/library
